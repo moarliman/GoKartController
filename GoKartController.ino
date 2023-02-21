@@ -45,15 +45,18 @@ void setup()
 void loop()
 {
     throttleVal = analogRead(throttlePin);
-    power = map(throttleVal, 0, 1023, 0, maxPower);
+    power = map(throttleVal, 172, 870, 0, maxPower);
 
     if (speedKmh < maxSpeed)
     {
         analogWrite(pwmPin, power);
+    } else
+    {
+        analogWrite(pwmPin, 0);
     }
-
-    Serial.print ("Throttle: ")
-    Serial.println (throttleVal;
+    
+    Serial.print ("Throttle: ");
+    Serial.println (throttleVal);
     Serial.print ("Power: ");
     Serial.println (power);
 }
