@@ -46,7 +46,7 @@ void loop () {
 
   if (buttonState == HIGH) {
     Serial.println ("power on");
-      if ( speedKmh < 10.0 ) {
+      if ( speedKmh < maxSpeed ) {
         if ( power < maxPower ) {
           power++;
         }
@@ -62,5 +62,5 @@ void loop () {
       speedKmh = 0;
     }
     analogWrite(pwmPin, power);
-    delay (5);
+    delay (10);
   }
